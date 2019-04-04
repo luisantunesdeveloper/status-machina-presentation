@@ -9,13 +9,13 @@ export default class Canvas extends React.Component {
   }
 
   componentDidMount() {
-    if (this.currentSlide) {
+    if (this.currentSlide && this.slideIndex < this.slidesCount) {
       this.renderSlide();
     }
   }
 
   componentDidUpdate() {
-    if (this.currentSlide) {
+    if (this.currentSlide && this.slideIndex < this.slidesCount) {
       this.renderSlide();
     }
   }
@@ -47,6 +47,8 @@ export default class Canvas extends React.Component {
 
   render() {
     const slides = this.props.store.slides;
+    this.slideIndex = this.props.store.currentSlide;
+    this.slidesCount = slides.length + 1;
     this.currentSlide =
       this.props.store.currentSlide > -1 &&
       this.props.store.currentSlide < slides.length + 1
@@ -56,6 +58,16 @@ export default class Canvas extends React.Component {
     const svg = (
       <svg width={window.innerWidth} height={window.innerHeight}>
         <rect width="100%" height="100%" fill="black" />
+        <text dx={50} dy={window.innerHeight - 50} fill="white">
+          {this.props.store.currentSlide + 1}/{this.slidesCount - 1}
+        </text>
+        <text
+          dx={window.innerWidth - 180}
+          dy={window.innerHeight - 50}
+          fill="white"
+        >
+          MIT Luís Antunes
+        </text>
       </svg>
     );
 

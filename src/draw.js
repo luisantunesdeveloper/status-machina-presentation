@@ -1,6 +1,8 @@
 import { transition } from "d3-transition";
 import { easeLinear } from "d3";
 
+const circleHeight = 400;
+
 const t = () =>
   transition()
     .duration(1750)
@@ -32,15 +34,39 @@ export const drawSlide = (container, slide, cx) => {
     slide.id,
     cx,
     window.innerHeight / 2,
-    400
+    circleHeight
   );
 
   // support multi line here
-  drawText(
-    container,
-    slide.description,
-    window.innerWidth / 2,
-    window.innerHeight / 2
-  );
+  const words = slide.description.split(" ").reduce((acc, word) => {
+    if (
+      acc.length > 0 &&
+      acc[acc.length - 1].match(/ /g) &&
+      acc[acc.length - 1].match(/ /g).length > 2
+    ) {
+      acc.push(word);
+    } else {
+      if (acc.length === 0) {
+        acc[0] = word;
+      } else {
+        acc[acc.length - 1] = acc[acc.length - 1] + " " + word;
+      }
+    }
+    return acc;
+  }, []);
+
+  const lineSpace = circleHeight / words.length;
+
+  words.reduce((acc, phrase) => {
+    acc += lineSpace;
+    drawText(
+      container,
+      phrase,
+      window.innerWidth / 2,
+      words.length === 1 ? window.outerHeight / 2 : acc
+    );
+    return acc;
+  }, lineSpace);
+
   return circle;
 };

@@ -1,6 +1,6 @@
 # status-machina-visualizer
 
-Visualization app for displaying state machines using [status-machina](https://github.com/luisantunesdeveloper/status-machina)
+Presentation app for displaying info about state machines built with using [status-machina](https://github.com/luisantunesdeveloper/status-machina)
 
 ## Start
 

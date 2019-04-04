@@ -2,7 +2,7 @@ import React from "react";
 import Canvas from "./canvas";
 // import Title from "./title";
 // import Footer from "./footer";
-import { CanvasStore, CanvasStoreInitData, stores } from "./stores";
+import { SlidesStore, SlidesStoreInitData, stores } from "./stores";
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -12,29 +12,28 @@ export default class Layout extends React.Component {
   }
 
   componentWillMount() {
-    stores.canvasStore = CanvasStore().init(CanvasStoreInitData);
+    stores.SlidesStore = SlidesStore().init(SlidesStoreInitData);
   }
 
   async next(event) {
     event.preventDefault();
-    await stores.canvasStore.transition("next");
-    await stores.canvasStore.transition("display");
-    this.setState(stores.canvasStore.data);
+    await stores.SlidesStore.transition("next");
+    await stores.SlidesStore.transition("display");
+    this.setState(stores.SlidesStore.data);
   }
 
   async previous() {
     event.preventDefault();
-    await stores.canvasStore.transition("previous");
-    await stores.canvasStore.transition("display");
-    this.setState(stores.canvasStore.data);
+    await stores.SlidesStore.transition("previous");
+    await stores.SlidesStore.transition("display");
+    this.setState(stores.SlidesStore.data);
   }
 
   render() {
     return (
       <React.Fragment>
-        {/* <Title title="State machines" /> */}
         <Canvas
-          store={stores.canvasStore.data}
+          store={stores.SlidesStore.data}
           next={this.next}
           previous={this.previous}
         />
