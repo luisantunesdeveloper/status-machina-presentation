@@ -1,0 +1,25 @@
+{
+  "name": "status-machina-presentation",
+  "version": "0.0.1",
+  "description": "status-machina-presentation",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "author": "Luis Antunes",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "d3": "^5.9.2",
+    "draw": "0.0.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "status-machina": "0.0.19"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.2"
+  }
+}
