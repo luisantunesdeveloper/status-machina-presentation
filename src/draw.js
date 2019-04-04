@@ -26,7 +26,7 @@ export const drawText = (container, text, dx, dy) =>
     .attr("dy", dy)
     .text(text)
     .style("text-anchor", "middle")
-    .style("font", "50px sans-serif");
+    .style("font", "46px sans-serif");
 
 export const drawSlide = (container, slide, cx) => {
   const circle = drawCircle(

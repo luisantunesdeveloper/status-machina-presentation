@@ -8,8 +8,16 @@ export const SlidesStoreInitData = {
       description: "What's a state machine?"
     },
     {
-      description:
-        "A device that can be in one of a set number of stable conditions depending on its previous condition and on the present values of its inputs"
+      description: "A system can be in one"
+    },
+    {
+      description: "of a set number of stable conditions"
+    },
+    {
+      description: "depending on its previous condition"
+    },
+    {
+      description: "and on the present values of its inputs"
     },
     {
       description: "Types of state machines?"
@@ -40,6 +48,24 @@ export const SlidesStoreInitData = {
     },
     {
       description: "https://statecharts.github.io/"
+    },
+    {
+      description: "Demo time"
+    },
+    {
+      description: "Obs: Demo and Presentation powered by: status-machina"
+    },
+    {
+      description: "https://github.com/luisantunesdeveloper/status-machina"
+    },
+    {
+      description: "Demo 1: Todo app"
+    },
+    {
+      description: "Demo 2: Presentation app"
+    },
+    {
+      description: "Thanks"
     }
   ],
   currentSlide: 0
